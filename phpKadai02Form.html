@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品検索</title>
+    <meta http-equiv="Pragma" content="no-cache">
+    <script>
+        function formChk(){
+            var errNum;
+            errNum = 0;
+  
+            if(document.find.syubetsu.value =='0' && document.find.kensaku.value == ""){
+                alert("キーワードを入力してください");
+                errNum = errNum +1;
+            }else if(document.find.syubetsu.value =='1' && document.find.kensaku.value == ""){
+                alert("キーワードを入力してください");
+                errNum = errNum +1;
+            }else if(document.find.syubetsu.value =='2' && document.find.kensaku.value == ""){
+                alert("キーワードを入力してください");
+                errNum = errNum +1;
+            }
+
+            if(document.find.syubetsu.value =='3' && document.find.kakaku.value=='0'){
+                alert("価格帯を選択してください");
+                errNum = errNum +1;
+            }
+
+            if(document.find.syubetsu.value == '4' && document.find.hatsubai.value=='0'){
+                alert("発売日を選択してください");
+                errNum = errNum +1;
+            }
+            if(errNum != 0 ){
+                return false;
+            }
+            return true
+        }
+    </script>
+</head>
+<body style="text-align: center">
+    <font size="5" color="red">【商品検索】</font>
+    <form name="find" action="phpKadai02a.php" onsubmit="return formChk()" method="GET" target="hyoji">
+        <input type="radio" name="syubetsu" checked value="0">【商品コード】　
+        <input type="radio" name="syubetsu" value="1">【商品名】
+        <input type="radio" name="syubetsu" value="2">【アーティスト名】<br>
+        (キーワード欄に入力してください)<br>
+        【キーワード】<br>
+        <input type="text" name="kensaku"><br>
+        <input type="radio" name="syubetsu" value="3">【価　　格】
+        <select name="kakaku">
+            <option value="0" checked>価格帯を選択してください</option>
+            <option value="2000">~2000円</option>
+            <option value="2001">2001~3000円</option>
+            <option value="3001">3001円~</option>
+        </select>
+        <input type="radio" name="syubetsu" value="4">【発　売　日】
+        <select name="hatsubai">
+            <option value="0" >期間を選択してください</option>
+            <option value="00">2000年以前</option>
+            <option value="01">2001年〜2009年</option>
+            <option value="10">2010年以降</option>
+        </select>
+        <input type="radio" name="syubetsu" value="9">【全　　て】<br>
+        <input type="submit" value="検索する">　<input type="reset" value="クリア">
+    </form>
+    <a href="phpMondai10.html" target="top">利用者登録</a>　
+    <a href="phpKadai02b.php" target="hyoji">買い物かご</a>
+</body>
+</html>
